@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="span9">
+
+<div class="well">
+  <p id="notice"><%= notice %></p>
+<p>
+  <div class="restroom-header">
+    <div class="restroom-rating">
+    <h2><%= @restroom.business_name %></h2>
+    </p>
+    Restroom Rating: <%= rating_for @restroom %>
+    </div>
+    <div style= "float:right;">
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x250&sensor=false&zoom=17&markers=#{@restroom.latitude}%2C#{@restroom.longitude}" %>
+    </div>
+   <div style= "float:left;">
+    <address>
+<%= @restroom.street_address %> </br>
+<%= @restroom.city %>,  <%= @restroom.state %> <%= @restroom.zip_code %></br>
+</address>
+</div>
+
+</div>
+<div style="clear:both;">
+
+  </br>
+  <b>Description:</b>
+  <%= @restroom.description %>
+</p>
+</div>
+
+</div>
+
+<h2>Reviews</h2>
+<%= render @restroom.reviews %>
+
+
+<div class="reviews" >
+<%=render "reviews/form" %>
+</div>
+</div>
+  <div class="span3">
+     <h4>Nearby Restrooms<h4>
+        <% for restroom in @restroom.nearbys(20) %>
+        <li><%= link_to restroom.business_name, restroom %> (<%= restroom.distance.round(2) %> miles)</li>
+        <%end%>
+  
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_restroom_path(@restroom) %> |
+<%= link_to 'Back', restrooms_path %>
+
+

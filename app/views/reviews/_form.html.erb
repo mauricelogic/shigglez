@@ -1,0 +1,41 @@
+<h4>Add your review:</h4>
+<%= simple_form_for([@restroom, @restroom.reviews.build]) do |f| %>
+
+<% if user_signed_in? %>
+<div class="new-comment">
+<div class="row">
+  <div class="span4">
+  <strong>Username: </strong><%= current_user.profile_name %>
+  </div>
+</div>
+
+<div class="row">
+<div class="span4">
+ Restroom Rating: <%= rating_for @restroom %>
+</div>
+</div>
+
+<div class="row">
+<div class="span4">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+</div>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <%= f.input :content, :input_html => {:style => 'width: 250px'} %>
+  </div>
+</div>
+</div>
+    <div class="field">
+    <%= f.input :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%else%>
+   <p>Please register or sign in to post a review.</p>
+<% end %>
+
+<% end %>

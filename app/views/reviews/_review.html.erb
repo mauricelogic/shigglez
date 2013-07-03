@@ -1,0 +1,20 @@
+  <div class="media", style="border-bottom: solid 1px #cacaca; padding: 10px;">
+  	    <div class="pull-left">
+    	<%= link_to (image_tag @restroom.image(:thumbnail), class: "img-circle"), @restroom %>
+    	<p>
+  		<b>Username:</b>
+    	<%= review.try(:user).try(:profile_name) %>
+  		</p>
+    	</div>
+
+   		<div class="media-body">
+    		<h4 class="media-heading"><%= review.title %></h4>
+    		<%= rating_for @restroom %>
+    		<p><%= review.content %></p>
+    	</div>
+
+   </div>
+
+
+
+ 

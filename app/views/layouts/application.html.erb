@@ -1,0 +1,94 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,300italic' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <title>shigglez<%= yield(:title) %></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <!--[if IE 7]>
+    <%= stylesheet_link_tag "font-awesome-ie7.min" %>
+  <![endif]-->
+  <!-- Fav and touch icons -->
+  <%= javascript_include_tag "rails_strap_modernizer"  %>
+  <%= csrf_meta_tags %>
+  <%=  yield(:head) %>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-57x57-precomposed.png">
+  <link rel="shortcut icon" href="favicon.png">
+</head>
+<body class="<%= yield(:body_class) %>">
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+      	<div class="container">
+				<a class="pull-left" href="/" title="Yelp for restrooms"><img src="/assets/logo3.png" ></a>  
+       
+          <ul style="margin-top:30px;"class="nav pull-right">
+          	<% if user_signed_in? %>
+          		   <li><%= link_to "All Restrooms", restrooms_path %></li> 
+					<li><%= link_to current_user.profile_name, edit_user_registration_path %></li>
+					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+				
+				<%else%> 
+					<li><%= link_to "All Restrooms", restrooms_path %></li> 
+					<li><%= link_to "Register", new_user_registration_path %></li>
+					<li><%= link_to "Log in", new_user_session_path %></li>
+				<%end%>
+			</ul>
+      </div>
+    </div>
+    
+
+  </div>
+</header>
+<%= yield(:post_header) %>
+<div id="main">
+	<div id="main-search-wrapper">
+		<div id="main-search">
+			<div id="searchbox">
+		    <%=form_tag restrooms_path, :method => :get do %>
+    <p>
+          <%= submit_tag "Search", :name => nil, :id => "submit" %>
+          <%= text_field_tag :search, params[:search], :placeholder => "search nearby...", :id => "search" %>
+      
+    </p>
+    <%end%>
+			</div>
+		 <div id="new-restroom-text">
+		Or create a new restroom...
+		</div>	
+    	<div id="new-restroom">
+		<%= link_to 'New Restroom', new_restroom_path, class: "restroom-submit"%>
+		</div>
+	</div>
+		
+	</div> 
+
+  <div class="container">
+    <%= yield %>
+  </div>
+  <footer>
+
+    <section id="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="span6"> Copyright &copy;2013 all rights reserved </div>
+          <div class="span6 text-right">
+            Designed by <a href="http://www.leonart.gr">leonart</a>
+            & developed by <a href="http://wintersolutions.de">wintersolutions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+</div>
+<%= javascript_include_tag "application" %>
+</body>
+</html>

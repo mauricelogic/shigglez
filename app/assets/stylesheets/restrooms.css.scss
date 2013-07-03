@@ -1,0 +1,100 @@
+// Place all the styles related to the restrooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.restroom {
+		border-bottom: solid 1px #ccc;
+		padding: 10px 0;
+}
+
+.restroom p {
+	padding: 5px 0;
+}
+
+.restroom.hover {
+	background:#fafafa;
+}
+.meta {
+	background: #f8f0d0;
+	padding: 3px;
+}
+
+.restroom .admin{
+	display:none;
+}
+
+.restroom.hover .admin{
+	display:inline;
+}
+.admin {
+		float: right;
+}
+
+.reviews {
+	clear:both;
+
+}
+
+.btn-custom {
+padding: 5px;
+	float:right;
+  background-color: hsl(118, 100%, 40%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#08f400", endColorstr="#06cc00");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#08f400), to(#06cc00));
+  background-image: -moz-linear-gradient(top, #08f400, #06cc00);
+  background-image: -ms-linear-gradient(top, #08f400, #06cc00);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #08f400), color-stop(100%, #06cc00));
+  background-image: -webkit-linear-gradient(top, #08f400, #06cc00);
+  background-image: -o-linear-gradient(top, #08f400, #06cc00);
+  background-image: linear-gradient(#08f400, #06cc00);
+  border-color: #06cc00 #06cc00 hsl(118, 100%, 38%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.13);
+  -webkit-font-smoothing: antialiased;
+}
+
+.rectangle {
+  background: transparent;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border: 1px solid #b0aaaa;
+  width: 836px;
+  
+ 
+}
+.rectangle .dom-heading {
+  font-family:"Arial";
+  width: 257px;
+  height: 42px;
+  position: absolute;
+  top: 1px;
+  left: 11px;
+}
+.rectangle .paragraph {
+  height: 42px;
+  position: absolute;
+}
+.rectangle .paragraph.paragraph-1 {
+  width: 300px;
+  top: 35px;
+  left: 11px;
+}
+.rectangle .paragraph.paragraph-1 p {
+  font-family:"arial";
+}
+.rectangle .paragraph.paragraph-2 {
+  width: 814px;
+  top: 106px;
+  left: 12px;
+}
+.heading {
+  width: 300px;
+  height: 42px;
+  position: absolute;
+  top: 288px;
+  left: 84px;
+}

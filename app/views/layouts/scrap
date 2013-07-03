@@ -1,0 +1,31 @@
+  <li class="<%= is_active?(['index', 'home_alternative']) %>"><%= link_to "Home", root_path %></li>
+            <li class="<%= is_active?(['about_us', 'page_alternative']) %>"><%= link_to "About Us", about_us_path %></li>
+            <li class="<%= is_active?('services') %>"><%= link_to "Services", services_path %></li>
+            <li class="<%= is_active?(['portfolio', 'gallery', 'portfolio_item', 'portfolio_item_2']) %>"><%= link_to "Portfolio", portfolio_path %></li>
+            <li class="<%= is_active?(['blog', 'single_post']) %>"><%= link_to "Blog", blog_path %></li>
+            <li class="<%= is_active?('contact') %>"><%= link_to "Contact", contact_path %></li>
+            <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#">Pages<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Home Alternative", home_alternative_path %></li>
+                <li><%= link_to "Page Alternative", page_alternative_path %></li>
+                <li><%= link_to "Portfolio Masonry", gallery_path %></li>
+                <li><%= link_to "Portfolio Item", portfolio_item_path %></li>
+                <li><%= link_to "Portfolio Item II", portfolio_item_2_path %></li>
+                <li><%= link_to "Single Post", single_post_path %></li>
+                <li><%= link_to "ERROR 404", error_404_path %></li>
+                <li>
+                  <%= link_to register_path do %>
+                      Register or Sign In
+                      <span class="label label-important">new</span>
+                  <% end %>
+                </li>
+                <li><%= link_to "Bootstrap Elements", elements_path %></li>
+              </ul>
+            </li>
+          </ul>
+
+              <div id="sign">
+      <%= link_to register_path do %>
+          <i class="icon icon-user"></i>Register/Sign in
+      <% end %>
+    </div>

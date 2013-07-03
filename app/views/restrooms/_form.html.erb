@@ -1,0 +1,47 @@
+<%= simple_form_for(@restroom, html: {class: "form-horizontal"}) do |f| %>
+  <% if @restroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restroom.errors.count, "error") %> prohibited this restroom from being saved:</h2>
+
+      <ul>
+      <% @restroom.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.input :business_name %><br />
+  </div>
+  <div class="field">
+    <%= f.input :category %><br />
+  </div>
+  <div class="field">
+    <%= f.input :street_address %><br />
+  </div>
+  <div class="field">
+    <%= f.input :city %><br />
+  </div>
+  <div class="field">
+    <%= f.input :state %><br />
+  </div>
+  <div class="field">
+    <%= f.input :zip_code %><br />
+  </div>
+  <div class="field">
+    <%= f.input :phone_number %><br />
+  </div>
+  <div class="field">
+    <%= f.input :description %>
+  </div>
+  <div>
+  Restroom rating: <%= rating_for @restroom %>
+</div>
+    <div class="field">
+    <%= f.input :image %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
