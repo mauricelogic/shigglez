@@ -109,6 +109,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -199,7 +200,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -229,12 +229,12 @@ DEPENDENCIES
   jquery-rails
   letsrate
   paperclip (~> 3.0)
+  pg
   pry-plus
   pry-rails
   rails (= 3.2.12)
   rails_admin
   sass-rails (~> 3.2.3)
   simple_form
-  sqlite3
   therubyracer
   uglifier (>= 1.0.3)
