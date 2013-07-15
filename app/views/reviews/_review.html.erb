@@ -14,7 +14,7 @@
     		<div style='width:auto;'><%= rating_for @restroom %></div>
     		<p><%= review.content %></p>
 
-    		<div class="review-photos-header">
+    		<div class="review-photos-wrapper">
     		<div class="review-photos">
     		<% if review.image? %>
     				<b>Photos:</b>
@@ -23,9 +23,11 @@
     		<%='No Photos'%>
     		<%end%>
     		</div>
+    		<div style="float:right;margin-top:5px;width:auto;" class='shareaholic-canvas' data-app='share_buttons' data-app-id='14967'></div>
     	</div>
+
     	</div>
-    	<div style="float:right;clear:both;border-top: solid 1px #000;margin-top:5px;width:auto;" class='shareaholic-canvas' data-app='share_buttons' data-app-id='14967'></div>
+    	
 
    </div>
 

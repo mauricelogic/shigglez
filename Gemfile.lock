@@ -53,6 +53,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     columnize (0.3.6)
+    commonjs (0.2.6)
     debug_inspector (0.0.2)
     debugger (1.6.0)
       columnize (>= 0.3.1)
@@ -68,6 +69,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    flexslider (2.0.2)
     font-awesome-rails (3.2.1.1)
       railties (>= 3.2, < 5.0)
     geocoder (1.1.8)
@@ -89,6 +91,11 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    less (2.3.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
+      actionpack (>= 3.1)
+      less (~> 2.3.1)
     letsrate (1.0.8)
     libv8 (3.11.8.17)
     mail (2.4.4)
@@ -109,8 +116,12 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
-    pg (0.15.1)
     polyglot (0.3.3)
+    prettyphoto-rails (0.2.0)
+      jquery-rails
+      rails (>= 3.1)
+      sass-rails
+      uglifier
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -173,6 +184,12 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
+    rails_strap (1.0.3)
+      flexslider (= 2.0.2)
+      jquery-rails (~> 2.0)
+      less-rails (~> 2.2)
+      prettyphoto-rails (= 0.2.0)
+      twitter-bootstrap-rails (= 2.2.6)
     railties (3.2.12)
       actionpack (= 3.2.12)
       activesupport (= 3.2.12)
@@ -200,6 +217,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -208,6 +226,10 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -229,12 +251,13 @@ DEPENDENCIES
   jquery-rails
   letsrate
   paperclip (~> 3.0)
-  pg
   pry-plus
   pry-rails
   rails (= 3.2.12)
   rails_admin
+  rails_strap
   sass-rails (~> 3.2.3)
   simple_form
+  sqlite3
   therubyracer
   uglifier (>= 1.0.3)
