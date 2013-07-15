@@ -14,6 +14,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
+   
+   
 
     respond_to do |format|
       format.html # show.html.erb

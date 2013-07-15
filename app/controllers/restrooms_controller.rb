@@ -19,6 +19,7 @@ end
   # GET /restrooms/1.json
   def show
     @restroom = Restroom.find(params[:id])
+    
 
     respond_to do |format|
       format.html # show.html.erb

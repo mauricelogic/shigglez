@@ -21,6 +21,24 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-57x57-precomposed.png">
   <link rel="shortcut icon" href="favicon.png">
+  <script type="text/javascript">
+//<![CDATA[
+  (function() {
+    var shr = document.createElement('script');
+    shr.setAttribute('data-cfasync', 'false');
+    shr.src = '//dtym7iokkjlif.cloudfront.net/assets/pub/shareaholic.js';
+    shr.type = 'text/javascript'; shr.async = 'true';
+    shr.onload = shr.onreadystatechange = function() {
+      var rs = this.readyState;
+      if (rs && rs != 'complete' && rs != 'loaded') return;
+      var apikey = 'd99f60b096df7deb523bfc1add147990'
+      try { Shareaholic.init(apikey); } catch (e) {}
+    };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(shr, s);
+  })();
+//]]>
+</script>
 </head>
 <body class="<%= yield(:body_class) %>">
 <header>
@@ -71,7 +89,7 @@
 		
 	</div> 
 
-  <div class="container">
+  <div class="container" style="background:#fff;padding:20px;margin-top:15px;box-shadow: 2px 2px 1px #bbb;">
     <%= yield %>
   </div>
   <footer>

@@ -1,41 +1,46 @@
-<h4>Add your review:</h4>
+<h3>Add your review:</h3>
 <%= simple_form_for([@restroom, @restroom.reviews.build]) do |f| %>
 
 <% if user_signed_in? %>
 <div class="new-comment">
 <div class="row">
-  <div class="span4">
-  <strong>Username: </strong><%= current_user.profile_name %>
-  </div>
-</div>
-
-<div class="row">
-<div class="span4">
- Restroom Rating: <%= rating_for @restroom %>
-</div>
-</div>
-
-<div class="row">
-<div class="span4">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-</div>
-</div>
-
-<div class="row">
   <div class="span8">
-    <%= f.input :content, :input_html => {:style => 'width: 250px'} %>
+  <strong>Hello </strong><%= current_user.profile_name %>
   </div>
+
+
+
+<div class="span6">
+ <h4>What is your overall rating for this restroom? </h4>
+ <%= rating_for @restroom %>
+</div>
+
+
+
+<div class="span8">
+    <h4><%= f.label :title_of_your_review %></h4>
+    <%= f.input :title, :input_html => {:class =>"span6", :height => "25px", rows: 1} %>
+
+</div>
+
+
+
+  <div class="span8">
+    <h4><%= f.label :your_review %></h4>
+    <%= f.input :content, label: false, :input_html => {:class =>"span9", rows: 8, :placeholder => "Enter your review here..."}%>
+  </div>
+
 </div>
 </div>
     <div class="field">
-    <%= f.input :image %>
+    <h4>Do you have a photo to share? </h4> 
+    <%= f.input :image, label: false %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit your review', :class => 'btn btn-primary' %>
   </div>
 <%else%>
-   <p>Please register or sign in to post a review.</p>
+   <p>Please <%= link_to "register", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to post a review.</p>
 <% end %>
 
 <% end %>

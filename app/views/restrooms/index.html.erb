@@ -15,8 +15,12 @@
     </div>
     <div class="media-body">
         <h4 class="media-heading"><%=link_to restroom.business_name, restroom%></h4>
+        <div class="review-block">
+            <div class="review-icons"><%= rating_for restroom %></div>
+            <div class="review-count"><%=pluralize(restroom.reviews.size, 'review')%></div>
+        </div>
 
-    <p><%= truncate restroom.description, length: 290 %></p>
+    <p><div style='clear:both;'><%= truncate restroom.description, length: 290 %></div></p>
     </div>
     <div class="meta">
         <%= link_to 'Show reviews', restroom %>

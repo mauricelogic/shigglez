@@ -9,11 +9,13 @@ gem 'sqlite3'
 gem 'devise'
 gem 'simple_form'
 #gem 'rails_strap'
-gem 'rails_strap'
+#gem 'rails_strap'
 gem 'therubyracer'
 gem "paperclip", "~> 3.0"
 gem 'letsrate'
 gem 'geocoder'
+gem 'rails_admin'
+gem 'certified'
 
 # Gems used only for assets and not required
 # in production environments by default.

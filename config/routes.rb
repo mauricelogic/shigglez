@@ -1,10 +1,14 @@
 Shigglez::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   get "users/show"
 
   match '/rate' => 'rater#create', :as => 'rate'
 
   devise_for :users
   match 'users/:id' => 'users#show'
+
+resources :reviews
 
   resources :restrooms do
     resources :reviews

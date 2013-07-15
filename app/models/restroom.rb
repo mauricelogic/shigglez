@@ -9,7 +9,8 @@ class Restroom < ActiveRecord::Base
                             size: { less_than: 5.megabytes }
 
   has_many :reviews, :dependent => :destroy
-  has_attached_file :image, styles: {thumbnail: "115x115", medium: "250x250", small: "150x150"}
+  has_attached_file :image, styles: {thumbnail: "75x75", medium: "250x250", small: "100x100"}
+   belongs_to :user
 
   letsrate_rateable
 
