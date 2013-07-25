@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
-   
+
    
 
     respond_to do |format|
@@ -44,6 +44,8 @@ class ReviewsController < ApplicationController
  def create
   @restroom = Restroom.find(params[:restroom_id])
     @review = @restroom.reviews.build(params[:review])
+      @review.user_id = current_user.id
+      
     respond_to do |format|
       if @review.save
         format.html { redirect_to(@restroom, :notice => 'Review was successfully created.') }

@@ -69,7 +69,11 @@ ActiveRecord::Schema.define(:version => 20130701053853522) do
     t.datetime "image_updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "test"
+    t.integer  "user_id"
   end
+
+  add_index "restrooms", ["user_id"], :name => "index_restrooms_on_user_id"
 
   create_table "reviews", :force => true do |t|
     t.text     "title"
@@ -85,6 +89,17 @@ ActiveRecord::Schema.define(:version => 20130701053853522) do
   end
 
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

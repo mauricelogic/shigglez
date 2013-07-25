@@ -21,14 +21,18 @@
         </div>
 
     <p><div style='clear:both;'><%= truncate restroom.description, length: 290 %></div></p>
+    
+        <div>
+        <%= link_to 'Show reviews', restroom, {:class => "btn btn-info"} %>
+        </div>
     </div>
-    <div class="meta">
-        <%= link_to 'Show reviews', restroom %>
-        <span class="admin">
+     <%if can? :update, restroom%>
+          <span class="admin">
             <%= link_to 'Edit', edit_restroom_path(restroom) %> |
-            <%= link_to 'Destroy', restroom, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', restroom, method: :delete, data: { confirm: 'Are you sure?' } %>
         </span>
-    </div>
+    <%end%>
+        
 
     </div>
 <%end%>

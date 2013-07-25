@@ -1,6 +1,6 @@
 <h1><%= @user.profile_name %> </h1>
 
-<%= image_tag @restroom.image.url %>
+<%= image_tag @user.gravatar_url %>
 
 <div>
 	<%=render @reviews %>

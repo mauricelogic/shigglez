@@ -1,11 +1,13 @@
   <div class="media", style="border-bottom: solid 1px #cacaca; padding: 10px;">
   	    <div class="pull-left">
-    	<%= link_to (image_tag @restroom.image(:thumbnail), class: "img-circle"), @restroom %>
+    	<%= link_to (image_tag review.user.avatar(:thumb), class: "img-circle"), @user %>
     	<p>
-  		<b>profilename</b></br>
+    	
+
+  		<b><%= review.user.profile_name %></b></br>
   		<b># of reviews</b></br>
   		<b># of created</b></br>
-    	<%= review.try(:user).try(:profile_name) %>
+    	
   		</p>
     	</div>
 

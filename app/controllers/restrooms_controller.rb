@@ -1,6 +1,8 @@
 class RestroomsController < ApplicationController
   # GET /restrooms
   # GET /restrooms.json
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
   def index
     if params[:search].present?
       @restrooms = Restroom.near(params[:search], 40, :order => :distance)
@@ -41,13 +43,16 @@ end
   # GET /restrooms/1/edit
   def edit
     @restroom = Restroom.find(params[:id])
+    authorize! :edit, @restroom
   end
 
   # POST /restrooms
   # POST /restrooms.json
   def create
+    #authorize! :create, @restroom
     @restroom = Restroom.new(params[:restroom])
-
+    @restroom.user_id=current_user.id 
+    
     respond_to do |format|
       if @restroom.save
         format.html { redirect_to @restroom, notice: 'Restroom was successfully created.' }
@@ -63,6 +68,7 @@ end
   # PUT /restrooms/1.json
   def update
     @restroom = Restroom.find(params[:id])
+    authorize! :update, @restroom
 
     respond_to do |format|
       if @restroom.update_attributes(params[:restroom])
@@ -80,6 +86,7 @@ end
   def destroy
     @restroom = Restroom.find(params[:id])
     @restroom.destroy
+    authorize! :destroy, @restroom
 
     respond_to do |format|
       format.html { redirect_to restrooms_url }

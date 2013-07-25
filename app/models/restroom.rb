@@ -1,6 +1,7 @@
 class Restroom < ActiveRecord::Base
-  attr_accessible :business_name, :category, :city, :description, :phone_number, :state, :street_address, :zip_code, :image
+  attr_accessible :business_name, :category, :city, :description, :phone_number, :state, :street_address, :zip_code, :image, :user_id
   
+  validates_numericality_of :user_id
   validates :description, presence: true
   validates :street_address, presence: true
   
@@ -10,7 +11,7 @@ class Restroom < ActiveRecord::Base
 
   has_many :reviews, :dependent => :destroy
   has_attached_file :image, styles: {thumbnail: "75x75", medium: "250x250", small: "100x100"}
-   belongs_to :user
+  belongs_to :user
 
   letsrate_rateable
 
