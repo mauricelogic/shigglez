@@ -5,7 +5,7 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'pg'
+
 gem 'devise'
 gem 'cancan'
 gem 'simple_form'
@@ -17,6 +17,10 @@ gem 'letsrate'
 gem 'geocoder'
 gem 'rails_admin'
 gem 'certified'
+
+group :production do
+	gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
