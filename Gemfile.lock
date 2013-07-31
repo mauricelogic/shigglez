@@ -1,3 +1,13 @@
+PATH
+  remote: vendor/rails_strap-1.0.3
+  specs:
+    rails_strap (1.0.3)
+      flexslider (= 2.0.2)
+      jquery-rails (~> 2.0)
+      less-rails (~> 2.2)
+      prettyphoto-rails (= 0.2.0)
+      twitter-bootstrap-rails (= 2.2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -185,12 +195,6 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
-    rails_strap (1.0.3)
-      flexslider (= 2.0.2)
-      jquery-rails (~> 2.0)
-      less-rails (~> 2.2)
-      prettyphoto-rails (= 0.2.0)
-      twitter-bootstrap-rails (= 2.2.6)
     railties (3.2.12)
       actionpack (= 3.2.12)
       activesupport (= 3.2.12)
@@ -257,7 +261,7 @@ DEPENDENCIES
   pry-rails
   rails (= 3.2.12)
   rails_admin
-  rails_strap
+  rails_strap!
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
