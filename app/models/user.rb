@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   attr_accessible :avatar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "75x75" }, :default_url => "/images/:style/missing.png"
 
+  
+  has_many :albums
+  has_many :pictures
   has_many :reviews
   has_many :restrooms
   has_and_belongs_to_many :roles

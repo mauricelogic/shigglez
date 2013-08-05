@@ -13,6 +13,31 @@
 
 ActiveRecord::Schema.define(:version => 20130701053853522) do
 
+  create_table "albums", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "albums", ["user_id"], :name => "index_albums_on_user_id"
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "album_id"
+    t.integer  "user_id"
+    t.string   "caption"
+    t.text     "description"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+  end
+
+  add_index "pictures", ["album_id"], :name => "index_pictures_on_album_id"
+  add_index "pictures", ["user_id"], :name => "index_pictures_on_user_id"
+
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
