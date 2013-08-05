@@ -27,6 +27,8 @@ resources :reviews
   end 
   root to: 'restrooms#index'
 
+  get '/:id', to: 'profiles#show'
+
 
 
 
