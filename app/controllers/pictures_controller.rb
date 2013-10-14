@@ -40,7 +40,9 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(params[:picture])
+    @restroom = Restroom.find(params[:restroom_id)
+      @picture = @restroom.pictures.build(params[:picture])
+      @picture.user_id = current_user.id
 
     respond_to do |format|
       if @picture.save

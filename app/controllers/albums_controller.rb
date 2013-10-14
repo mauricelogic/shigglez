@@ -1,4 +1,6 @@
+
 class AlbumsController < ApplicationController
+before_filter :authenticate_user!, only: [:create, :new, :update, :edit, :destroy]
   # GET /albums
   # GET /albums.json
   def index

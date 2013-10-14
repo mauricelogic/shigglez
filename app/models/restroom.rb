@@ -10,6 +10,7 @@ class Restroom < ActiveRecord::Base
                             size: { less_than: 5.megabytes }
 
   has_many :reviews, :dependent => :destroy
+  has_many :pictures, :dependent => :destroy
   has_attached_file :image, styles: {thumbnail: "75x75", medium: "250x250", small: "100x100"}
   belongs_to :user
 
@@ -17,9 +18,15 @@ class Restroom < ActiveRecord::Base
 
   geocoded_by :address
 
+  def self.from_foursquare(result)
+    # TODO: we already have a restroom record for this location
+
+    Restroom.new :business_name => result.name
+  end
+
   def address
-  [street_address, city, state].compact.join(', ')
-end 
+      [street_address, city, state].compact.join(', ')
+  end 
 
   after_validation :geocode 
 end

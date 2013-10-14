@@ -1,20 +1,16 @@
 
 <div class="new-page-header">
-
-
-
     <h2>Restrooms</h2>
 </div>
-
-
-
- <% @restrooms.each do |restroom| %>
-  <div class="media", style="border-bottom: solid 1px #cacaca; padding: 10px;">
+<% if @restrooms %>
+<% @restrooms.each do |restroom| %>
+<div class="media", style="border-bottom: solid 1px #cacaca; padding: 10px;">
     <div class="pull-left">
-    <%= link_to (image_tag restroom.image(:small), class: "img-polaroid"), restroom %>
+        <%= link_to (image_tag restroom.image(:small), class: "img-polaroid"), restroom %>
     </div>
     <div class="media-body">
         <h4 class="media-heading"><%=link_to restroom.business_name, restroom%></h4>
+        <address> <%=restroom.street_address%></address>
         <div class="review-block">
             <div class="review-icons"><%= rating_for restroom %></div>
             <div class="review-count"><%=pluralize(restroom.reviews.size, 'review')%></div>
@@ -23,18 +19,28 @@
     <p><div style='clear:both;'><%= truncate restroom.description, length: 290 %></div></p>
     
         <div>
-        <%= link_to 'Show reviews', restroom, {:class => "btn btn-info"} %>
+            <%= link_to 'Show reviews', restroom, {:class => "btn btn-info"} %>
         </div>
     </div>
      <%if can? :update, restroom%>
-          <span class="admin">
+        <span class="admin">
             <%= link_to 'Edit', edit_restroom_path(restroom) %> |
             <%= link_to 'Delete', restroom, method: :delete, data: { confirm: 'Are you sure?' } %>
         </span>
     <%end%>
-        
+</div>
+<%end%>
 
+<% else %>
+
+<% @venues.each do |venue| %>
+
+    <div class="media-body">
+        <h4 class="media-heading"><%=link_to venue.business_name, venue_id %></h4>
     </div>
+<%end%>
+
+    kasdfkj
 <%end%>
 
 <br />

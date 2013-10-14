@@ -1,5 +1,8 @@
 class Picture < ActiveRecord::Base
-  belongs_to :album
+attr_accessible :caption, :description, :profile_name, :user_id
+
+  belongs_to :restroom
   belongs_to :user
-  attr_accessible :caption, :description
+  
+  validates_numericality_of :user_id
 end

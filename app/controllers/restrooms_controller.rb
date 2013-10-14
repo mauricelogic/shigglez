@@ -5,23 +5,33 @@ class RestroomsController < ApplicationController
   
   def index
     if params[:search].present?
-      @restrooms = Restroom.near(params[:search], 40, :order => :distance)
+      client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
+      results = client.search_venues(:ll => '40.365277,-82.669252', :query => params[:search])
+
+      @venues = results.groups[0].items.map { |result| Restroom.from_foursquare(result) }
 
     else
-    @restrooms = Restroom.all
+      @restrooms = Restroom.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @restrooms }
     end
   end
-end
+  
+  def venue_details
+     client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
+     @venue = client.venue(:query => params[:venue_id])
+    # default venue is the "Tour Eiffel"
+    #@venue_id = params[:venue_id] || "185194"
+    #@venue = foursquare.venues.find(@venue_id)
+  end
 
   # GET /restrooms/1
   # GET /restrooms/1.json
   def show
     @restroom = Restroom.find(params[:id])
-    
 
     respond_to do |format|
       format.html # show.html.erb

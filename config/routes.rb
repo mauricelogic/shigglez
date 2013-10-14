@@ -1,12 +1,6 @@
 Shigglez::Application.routes.draw do
   get "profiles/show"
 
-  resources :pictures
-
-
-  resources :albums
-
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "users/show"
@@ -18,13 +12,14 @@ Shigglez::Application.routes.draw do
 
 resources :reviews
 
-  resources :albums do
-    resources :pictures
-  end 
-
   resources :restrooms do
     resources :reviews
   end 
+
+  resources :restrooms do
+    resources :pictures
+  end 
+  
   root to: 'restrooms#index'
 
   get '/:id', to: 'profiles#show'
