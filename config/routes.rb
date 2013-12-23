@@ -11,6 +11,7 @@ Shigglez::Application.routes.draw do
   match 'users/:id' => 'users#show'
 
 resources :reviews
+resources :venues
 
   resources :restrooms do
     resources :reviews
@@ -20,7 +21,8 @@ resources :reviews
     resources :pictures
   end 
   
-  root to: 'restrooms#index'
+  root to: 'venues#index'
+  get 'venue_details' => 'venues#venue_details'
 
   get '/:id', to: 'profiles#show'
 

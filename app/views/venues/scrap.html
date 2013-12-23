@@ -1,0 +1,6 @@
+<div class="pull-left">
+        <%= link_to (image_tag restroom.image(:small), class: "img-polaroid"), restroom %>
+</div>
+
+
+<div class="review-count"><%=pluralize(restroom.reviews.size, 'review')%></div>

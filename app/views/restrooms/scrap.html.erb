@@ -1,0 +1,27 @@
+
+  <div style= "float:right;">
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x250&sensor=false&zoom=17&markers=#{@restroom.latitude}%2C#{@restroom.longitude}" %>
+  </div>
+
+
+  </br>
+<p> Restroom created by:</p>
+<%= @restroom.user.profile_name %>
+
+
+
+<%= render @restroom.reviews %>
+
+
+<div class="reviews" >
+<%=render "reviews/form" %>
+</div>
+</div>
+  <div class="span4">
+     <h4>Nearby Restrooms<h4>
+        <% for restroom in @restroom.nearbys(20) %>
+        <li class='nav nav-tabs nav-stacked'><%= link_to restroom.business_name, restroom %> (<%= restroom.distance.round(2) %> miles)</li>
+        <%end%>
+  
+  </div>
+</div>

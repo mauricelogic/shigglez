@@ -1,5 +1,5 @@
 class Restroom < ActiveRecord::Base
-  attr_accessible :business_name, :category, :city, :description, :phone_number, :state, :street_address, :zip_code, :image, :user_id
+  attr_accessible :business_name, :category, :city, :description, :phone_number, :state, :street_address, :zip_code, :image, :user_id, :restroom_id
   
   validates_numericality_of :user_id
   validates :description, presence: true
@@ -21,7 +21,9 @@ class Restroom < ActiveRecord::Base
   def self.from_foursquare(result)
     # TODO: we already have a restroom record for this location
 
-    Restroom.new :business_name => result.name
+    Restroom.new :business_name => result.name, :street_address => result.location.address,
+     :city => result.location.city, :state => result.location.state, :zip_code => result.location.postalCode, :phone_number => result.contact.formattedPhone,
+     :restroom_id => result.location.city
   end
 
   def address

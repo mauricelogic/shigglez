@@ -1,4 +1,4 @@
-class RestroomsController < ApplicationController
+class VenuesController < ApplicationController
   # GET /restrooms
   # GET /restrooms.json
   before_filter :authenticate_user!, :except => [:index, :show, :venue_details]
@@ -8,7 +8,7 @@ class RestroomsController < ApplicationController
       client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
       results = client.search_venues(:ll => '40.365277,-82.669252', :query => params[:search])
 
-      @venues = results.groups[0].items.map { |result| Restroom.from_foursquare(result) }
+      @venues = results.groups[0].items
 
     #else
     #  @restrooms = Restroom.all
@@ -22,7 +22,7 @@ class RestroomsController < ApplicationController
   
   def venue_details
      client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
-     @venue = client.venue("4bd2fefa9854d13a879efc4d")
+     @venue = client.venue(params[:restroom_id])
     # default venue is the "Tour Eiffel"
     #@venue_id = params[:venue_id] || "185194"
     #@venue = foursquare.venues.find(@venue_id)
@@ -104,4 +104,5 @@ class RestroomsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
