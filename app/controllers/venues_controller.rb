@@ -2,13 +2,25 @@ class VenuesController < ApplicationController
   # GET /restrooms
   # GET /restrooms.json
   before_filter :authenticate_user!, :except => [:index, :show, :venue_details]
+  #before_filter :create_venue, only: [:create, :venue_details]
   
   def index
+  	if
     params[:search].present?
       client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
-      results = client.search_venues(:ll => '40.365277,-82.669252', :query => params[:search])
-
+     
+      #results = client.search_venues(:ll => '40.0462925,-82.91250359', :query => params[:search])
+      results = client.search_venues(:near => params[:location], :query => params[:search])
+	
       @venues = results.groups[0].items
+
+  else
+	client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
+     
+      results = client.search_venues(:ll => '40.0462925,-82.91250359', :query => params[:search])
+      @venues = results.groups[0].items
+end
+
 
     #else
     #  @restrooms = Restroom.all
@@ -22,10 +34,12 @@ class VenuesController < ApplicationController
   
   def venue_details
      client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
-     @venue = client.venue(params[:restroom_id])
-    # default venue is the "Tour Eiffel"
-    #@venue_id = params[:venue_id] || "185194"
-    #@venue = foursquare.venues.find(@venue_id)
+     @pics = client.venue_photos(params[:venue_id], options = {:group => 'venue'})
+     @venue = client.venue(params[:venue_id])
+     @city = request.location.city
+
+    @review = Review.new
+    #@review.venue_id = @venue.id
   end
 
   # GET /restrooms/1
@@ -33,6 +47,8 @@ class VenuesController < ApplicationController
   def show
     #@restroom = Restroom.find(params[:id])
     @venue = client.venue(:query => params[:venue_id])
+    @review = Review.new
+    #@review.venue_id = @venue.id
 
     respond_to do |format|
       format.html # show.html.erb

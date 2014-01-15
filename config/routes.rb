@@ -10,12 +10,11 @@ Shigglez::Application.routes.draw do
   devise_for :users
   match 'users/:id' => 'users#show'
 
-resources :reviews
-resources :venues
 
-  resources :restrooms do
+
+  resources :venues do
     resources :reviews
-  end 
+  end
 
   resources :restrooms do
     resources :pictures

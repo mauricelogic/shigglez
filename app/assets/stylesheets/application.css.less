@@ -65,7 +65,7 @@ margin: 0px auto;
 }
 
 #searchbox {
-  float:left;
+  /*float:left;*/
 }
 
 #new-restroom {
@@ -76,7 +76,25 @@ margin: 0px auto;
 width: 330px; /*--- we will change this width on hover effect ---*/
 height: 20px;
 padding: 10px 5px;
-float: right;
+float: left;
+font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+border: 1px solid #ccc;
+
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-moz-transition:all 1s ease;
+-webkit-transition:all 1s ease;
+-o-transition:all 1s ease;
+-ms-transition:all 1s ease;
+transition:all 1s ease; 
+}
+
+#main-search #location {
+width: 200px; /*--- we will change this width on hover effect ---*/
+height: 20px;
+padding: 10px 5px;
+/*float: right;--*/
 font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
 border: 1px solid #ccc;
 
@@ -107,7 +125,7 @@ width:330px; /*--- We have change the width from 100px to 330px ---*/
 float: right;
 border: 1px solid #00748f;
 height: 43px;
-width: 100px;
+width: 150px;
 padding: 10px;
 margin: 0px 10px;
 cursor: pointer;
@@ -155,9 +173,9 @@ text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
 #new-restroom-text {
 font: bold 20px Arial, Helvetica;
 color: #fff;
-width:300px;
+width:auto;
 height:42px;
-padding-top:20px;
+padding:10px 20px 0 20px;
 font-style:italic;
 text-align:center;
 float:left;

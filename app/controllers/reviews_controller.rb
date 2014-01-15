@@ -42,9 +42,10 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
  def create
-  @restroom = Restroom.find(params[:restroom_id])
-    @review = @restroom.reviews.build(params[:review])
-      @review.user_id = current_user.id
+  @venue = Venue.find(params[:venue_id])
+  @review.venue_id = params[:venue_id]
+    #@review = @restroom.reviews.build(params[:review])
+  @review.user_id = current_user.id
       
     respond_to do |format|
       if @review.save

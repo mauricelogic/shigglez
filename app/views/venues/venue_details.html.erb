@@ -1,7 +1,8 @@
 <div class="well">
   <div class="row">
-  <div class="span8">
-
+  <div class="span11">
+<div>
+<div style ="float:left;">
           <p id="notice"><%= notice %></p>
           
               <div class="restroom-header">
@@ -17,15 +18,42 @@
                 <address>
                 <%= @venue.location.address %></br>
                 <%= @venue.location.city %> <%= @venue.location.state %> <%= @venue.location.postalCode %> </br>
-                <%= @venue.contact.formattedPhone%>
+                <%= @venue.contact.formattedPhone%></br>
                 </address>
+                  Category:</br>
+                  <% if @venue.categories.any?%>
+                <%= image_tag (@venue.categories[0].icon)%> <%=@venue.categories[0].pluralName%>
+                  <%else%>
+                  <%= "No Category"%>
+                  <%end%>
+                </div>
+              <div style= "float:left; clear:both;">
+                  <%=@venue.rating%>
               </div>
-        </div>
   </div>
 
-<%= link_to 'Back', restrooms_path %>
+    <div style= "float:right;">
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&visual_refresh=false&sensor=false&zoom=17&markers=#{@venue.location.lat}%2C#{@venue.location.lng}" %>
+    </div>
 </div>
+
+
+        </div>
+                          <div style= "float:left; clear:both;">
+                       Photos from Foursquare:</br>
+                       <% @pics.items[0,5].each do |pic|%>
+                      <%= link_to image_tag(pic.url, size: "150x150", crop: "fill"), pic.url%>
+                      <% end %>
+                  </div></br>
+  </div>
+
+
+
+<%= link_to 'Back', venues_path %>
+</div>
+
 
   <div style= "float:left; clear:both;">
   <h2>Reviews</h2>
+  Add comment partial here
   </div>

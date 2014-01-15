@@ -23,7 +23,7 @@ class Restroom < ActiveRecord::Base
 
     Restroom.new :business_name => result.name, :street_address => result.location.address,
      :city => result.location.city, :state => result.location.state, :zip_code => result.location.postalCode, :phone_number => result.contact.formattedPhone,
-     :restroom_id => result.location.city
+     :restroom_id => result.id
   end
 
   def address

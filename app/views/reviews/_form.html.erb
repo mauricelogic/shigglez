@@ -1,5 +1,5 @@
 <h3>Add your review:</h3>
-<%= simple_form_for([@restroom, @restroom.reviews.build]) do |f| %>
+<%= form_for [ @venue, @review ] do |f| %>
 
 <% if user_signed_in? %>
 <div class="new-comment">

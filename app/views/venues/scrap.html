@@ -4,3 +4,9 @@
 
 
 <div class="review-count"><%=pluralize(restroom.reviews.size, 'review')%></div>
+
+
+              <% @venue.photos.groups.each do |photo| %>
+                <%= image_tag("http://buckeyeshare.com/templates/new_vision/images/s5_logo.png")%>
+                
+              <%end%>
