@@ -1,0 +1,46 @@
+<div class="well">
+  <div class="row">
+  <div class="span11">
+<div>
+<div style ="float:left;">
+          <p id="notice"><%= notice %></p>
+          
+              <div class="restroom-header">
+
+                <div class="restroom-rating">
+                   <h2><%= @venue.name %></h2>
+                  <%= rating_for @venue %>
+                  </br>
+                </div>
+              </div>
+
+              <div style= "float:left; clear:both;">
+                <address>
+                <%= @venue.address %></br>
+                <%= @venue.venue_id %> 
+                </address>
+                  Category:</br>      
+                  <%= "No Category"%>
+                </div>
+
+  </div>
+
+
+</div>
+
+
+        </div>
+
+  </div>
+
+
+
+<%= link_to 'Back', venues_path %>
+</div>
+
+
+  <div style= "float:left; clear:both;">
+  <h2>Reviews</h2>
+  Add comment partial here
+
+  </div>

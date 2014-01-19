@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130701053853522) do
 
   create_table "albums", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "restroom_id"
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "albums", ["user_id"], :name => "index_albums_on_user_id"
+  add_index "albums", ["restroom_id"], :name => "index_albums_on_restroom_id"
 
   create_table "locations", :force => true do |t|
     t.string   "address"
@@ -109,19 +109,22 @@ ActiveRecord::Schema.define(:version => 20130701053853522) do
   add_index "restrooms", ["user_id"], :name => "index_restrooms_on_user_id"
 
   create_table "reviews", :force => true do |t|
-    t.text     "title"
+    t.string   "title"
     t.text     "content"
+    t.integer  "restroom_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.integer  "restroom_id"
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "venue_id"
   end
 
+  add_index "reviews", ["restroom_id"], :name => "index_reviews_on_restroom_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
+  add_index "reviews", ["venue_id"], :name => "index_reviews_on_venue_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -154,16 +157,19 @@ ActiveRecord::Schema.define(:version => 20130701053853522) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "user_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["user_id"], :name => "index_users_on_user_id"
 
   create_table "venues", :force => true do |t|
     t.string   "name"
     t.string   "address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "venue_id"
   end
 
 end

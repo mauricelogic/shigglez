@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   # GET /restrooms
   # GET /restrooms.json
-  before_filter :authenticate_user!, :except => [:index, :show, :venue_details]
+  before_filter :authenticate_user!, :except => [:index, :show, :venue_details, :venue_show]
   #before_filter :create_venue, only: [:create, :venue_details]
   
   def index
@@ -13,6 +13,14 @@ class VenuesController < ApplicationController
       results = client.search_venues(:near => params[:location], :query => params[:search])
 	
       @venues = results.groups[0].items
+
+      @venues.each do |venue|
+        Venue.where({
+          name: venue.name,
+          address: venue.location.address,
+          venue_id: venue.id
+        }).first_or_create
+      end
 
   else
 	client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
@@ -36,7 +44,7 @@ end
      client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK')
      @pics = client.venue_photos(params[:venue_id], options = {:group => 'venue'})
      @venue = client.venue(params[:venue_id])
-     @city = request.location.city
+     
 
     @review = Review.new
     #@review.venue_id = @venue.id
@@ -44,10 +52,10 @@ end
 
   # GET /restrooms/1
   # GET /restrooms/1.json
-  def show
+  def venue_show
     #@restroom = Restroom.find(params[:id])
-    @venue = client.venue(:query => params[:venue_id])
-    @review = Review.new
+    @venue = Venue.find_by_venue_id(params[:venue_id])
+    #@review = Review.new
     #@review.venue_id = @venue.id
 
     respond_to do |format|

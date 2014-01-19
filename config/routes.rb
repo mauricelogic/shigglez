@@ -23,6 +23,8 @@ Shigglez::Application.routes.draw do
   root to: 'venues#index'
   get 'venue_details' => 'venues#venue_details'
 
+  get 'venue_show' => 'venues#venue_show'
+
   get '/:id', to: 'profiles#show'
 
 

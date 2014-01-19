@@ -16,9 +16,8 @@
 
               <div style= "float:left; clear:both;">
                 <address>
-                <%= @venue.location.address %></br>
-                <%= @venue.location.city %> <%= @venue.location.state %> <%= @venue.location.postalCode %> </br>
-                <%= @venue.contact.formattedPhone%></br>
+                <%= @venue.address %></br>
+                <%= @venue.location.city %> 
                 </address>
                   Category:</br>
                   <% if @venue.categories.any?%>
