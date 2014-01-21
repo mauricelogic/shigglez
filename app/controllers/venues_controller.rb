@@ -55,8 +55,20 @@ end
   def venue_show
     #@restroom = Restroom.find(params[:id])
     @venue = Venue.find_by_venue_id(params[:venue_id])
-    #@review = Review.new
-    #@review.venue_id = @venue.id
+    @review = Review.new
+    @review.venue_id = @venue.id
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @restroom }
+    end
+  end
+
+    def show
+    #@restroom = Restroom.find(params[:id])
+    @venue = Venue.find_by_venue_id(params[:venue_id])
+    @review = Review.new
+    @review.venue_id = @venue.venue_id
 
     respond_to do |format|
       format.html # show.html.erb

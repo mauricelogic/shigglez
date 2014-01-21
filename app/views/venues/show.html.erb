@@ -9,6 +9,7 @@
 
                 <div class="restroom-rating">
                    <h2><%= @venue.name %></h2>
+
                   <%= rating_for @venue %>
                   </br>
                 </div>
@@ -17,33 +18,18 @@
               <div style= "float:left; clear:both;">
                 <address>
                 <%= @venue.address %></br>
-                <%= @venue.location.city %> 
+                <%= @venue.venue_id %> 
                 </address>
-                  Category:</br>
-                  <% if @venue.categories.any?%>
-                <%= image_tag (@venue.categories[0].icon)%> <%=@venue.categories[0].pluralName%>
-                  <%else%>
-                  <%= "No Category"%>
-                  <%end%>
+
                 </div>
-              <div style= "float:left; clear:both;">
-                  <%=@venue.rating%>
-              </div>
+
   </div>
 
-    <div style= "float:right;">
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&visual_refresh=false&sensor=false&zoom=17&markers=#{@venue.location.lat}%2C#{@venue.location.lng}" %>
-    </div>
 </div>
 
 
         </div>
-                          <div style= "float:left; clear:both;">
-                       Photos from Foursquare:</br>
-                       <% @pics.items[0,5].each do |pic|%>
-                      <%= link_to image_tag(pic.url, size: "150x150", crop: "fill"), pic.url%>
-                      <% end %>
-                  </div></br>
+
   </div>
 
 
@@ -54,6 +40,7 @@
 
   <div style= "float:left; clear:both;">
   <h2>Reviews</h2>
-  Add comment partial here
+  Add comment partial here murice
+  <%= render :partial => @venue.reviews %>
 
   </div>

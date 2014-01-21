@@ -10,7 +10,7 @@ Shigglez::Application.routes.draw do
   devise_for :users
   match 'users/:id' => 'users#show'
 
-
+resources :reviews
 
   resources :venues do
     resources :reviews
@@ -24,6 +24,8 @@ Shigglez::Application.routes.draw do
   get 'venue_details' => 'venues#venue_details'
 
   get 'venue_show' => 'venues#venue_show'
+
+  get 'venues/:id' => 'venues#show'
 
   get '/:id', to: 'profiles#show'
 

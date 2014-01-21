@@ -1,5 +1,5 @@
 <h3>Add your review:</h3>
-<%= form_for [ @venue, @review ] do |f| %>
+<%= simple_form_for ([ @venue, Review.new ]) do |f| %>
 
 <% if user_signed_in? %>
 <div class="new-comment">
@@ -12,7 +12,7 @@
 
 <div class="span6">
  <h4>What is your overall rating for this restroom? </h4>
- <%= rating_for @restroom %>
+ <%#= rating_for @restroom %>
 </div>
 
 

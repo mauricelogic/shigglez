@@ -1,37 +1,27 @@
-  <div class="media", style="border-bottom: solid 1px #cacaca; padding: 10px;">
-  	    <div class="pull-left">
-    	<%= link_to (image_tag review.user.avatar(:thumb), class: "img-circle"), @user %>
-    	<p>
-    	
 
-  		<b><%= review.user.profile_name %></b></br>
-  		<b># of reviews</b></br>
-  		<b># of created</b></br>
-    	
-  		</p>
-    	</div>
 
-   		<div class="media-body">
-    		<h4 class="media-heading"><%= review.title %></h4>
-    		<div style='width:auto;'><%= rating_for @restroom %></div>
-    		<p><%= review.content %></p>
 
-    		<div class="review-photos-wrapper">
-    		<div class="review-photos">
-    		<% if review.image? %>
-    				<b>Photos:</b>
-    		<%= link_to (image_tag review.image(:thumbnail), class: "img-circle") %>
-    		<% else%>
-    		<%='No Photos'%>
-    		<%end%>
-    		</div>
-    		<div style="float:right;margin-top:5px;width:auto;" class='shareaholic-canvas' data-app='share_buttons' data-app-id='14967'></div>
-    	</div>
+   <div class="comment-section">
+   <div class="comment-side">
+    <%= link_to (image_tag "icon.png", class: "img-circle") %>
+   </div>
+   <div class="comment-cont">
+    <div class="comment-author">
+      <%=review.user_id %>
 
-    	</div>
-    	
+    <div class="comment-body">
+    <p><%= review.content %></p>
+  </div>
+   </div>
+
+ 
+
 
    </div>
+
+        <div style="float:right;margin-top:5px;width:auto;background:white;border:1px solid #eee;" class='shareaholic-canvas' data-app='share_buttons' data-app-id='14967'>
+    </div>
+  </div>
 
 
 

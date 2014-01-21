@@ -25,13 +25,13 @@ class User < ActiveRecord::Base
    return !!self.roles.find_by_name(role.to_s)
   end
 
-before_create :setup_role
-  private
-  def setup_role
-    if self.role_ids.empty?
-      self.role_ids = [2]
-    end
-  end
+# before_create :setup_role
+#   private
+#   def setup_role
+#     if self.role_ids.empty?
+#       self.role_ids = [2]
+#     end
+#   end
 
   def gravatar_url
   	stripped_email = email.strip

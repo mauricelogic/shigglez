@@ -2,9 +2,9 @@
     <h2>Restrooms</h2>
 </div>
 <% @venues.each do |restroom| %>
-<div class="media", style="border-bottom: solid 1px #cacaca; padding: 10px;">
+<div class="media">
 
-    <div class="media-body">
+    <div class="index">
         <h4 class="media-heading"><%=link_to restroom.name, venue_show_path(:venue_id => restroom.id) %></h4>
         <address> <%=restroom.location.address%> </br>
                 <%=restroom.location.city%>, <%=restroom.location.state%> <%=restroom.location.postalCode%></br>

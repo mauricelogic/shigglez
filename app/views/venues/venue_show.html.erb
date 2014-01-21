@@ -1,6 +1,6 @@
-<div class="well">
+<div class="index">
   <div class="row">
-  <div class="span11">
+  <div class="span12">
 <div>
 <div style ="float:left;">
           <p id="notice"><%= notice %></p>
@@ -9,8 +9,7 @@
 
                 <div class="restroom-rating">
                    <h2><%= @venue.name %></h2>
-                  <%= rating_for @venue %>
-                  </br>
+
                 </div>
               </div>
 
@@ -26,6 +25,8 @@
   </div>
 
 
+
+
 </div>
 
 
@@ -37,10 +38,61 @@
 
 <%= link_to 'Back', venues_path %>
 </div>
+  <div class="index" style="float:left;clear:both;">
+  <div class="row">
+  <div class="span11">
+<h3>Latest Reviews</h3>
 
+<%= render :partial => @venue.reviews %>
+</div>
 
-  <div style= "float:left; clear:both;">
-  <h2>Reviews</h2>
-  Add comment partial here
+</div>
+</div>
+  <div style="float:left;clear:both;">
+<h3>Add your review:</h3>
+<%= simple_form_for ([ @venue, Review.new ]) do |f| %>
 
+<% if user_signed_in? %>
+<div class="new-comment">
+<div class="row">
+  <div class="span8">
+  <strong>Hello </strong><%= current_user.profile_name %>
   </div>
+
+
+
+<div class="span6">
+ <h4>What is your overall rating for this restroom? </h4>
+ <%#= rating_for @restroom %>
+</div>
+
+
+
+<div class="span8">
+</br>
+    <%= f.input :title, :input_html => {:class =>"span6", :height => "25px", rows: 1} %>
+
+</div>
+
+
+
+  <div class="span8">
+    <h4><%= f.label :your_review %></h4>
+    <%= f.input :content, label: false, :input_html => {:class =>"span8", rows: 8, :placeholder => "Enter your review here..."}%>
+  </div>
+
+</div>
+</div>
+    <div class="field">
+    <h4>Do you have a photo to share? </h4> 
+    <%= f.input :image, label: false %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit your review', :class => 'btn btn-primary' %>
+  </div>
+<%else%>
+   <p>Please <%= link_to "register", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to post a review.</p>
+<% end %>
+
+<% end %>
+</div>

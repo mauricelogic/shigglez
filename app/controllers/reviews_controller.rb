@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
 
+
    
 
     respond_to do |format|
@@ -43,21 +44,28 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
  def create
   @venue = Venue.find(params[:venue_id])
-  @review.venue_id = params[:venue_id]
+  @review = @venue.reviews.create(params[:review])
+  #redirect_to venue_show_path(params[@venue.venue_id])
+  #@review.venue_id = params[:venue_id]
     #@review = @restroom.reviews.build(params[:review])
+  #@review.save
   @review.user_id = current_user.id
       
-    respond_to do |format|
+  respond_to do |format|
       if @review.save
-        format.html { redirect_to(@restroom, :notice => 'Review was successfully created.') }
-        format.xml  { render :xml => @restroom, :status => :created, :location => @restroom }
+        format.html { redirect_to(@venue, :notice => 'Review was successfully created.') }
+        format.xml  { render :xml => @venue, :status => :created, :location => @venue }
       else
-        format.html { redirect_to(@restroom, :notice => 
+        format.html { redirect_to(@venue, :notice => 
         'Review could not be saved. Please fill in all fields')}
-        format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @venue.errors, :status => :unprocessable_entity }
       end
     end
   end
+
+  # def review_params
+  #   params.require(:review).permit(:profile_name, :content)
+  # end
 
   # PUT /reviews/1
   # PUT /reviews/1.json
