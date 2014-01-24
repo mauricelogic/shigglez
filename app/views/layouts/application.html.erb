@@ -9,6 +9,7 @@
   <title>shigglez<%= yield(:title) %></title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <%= stylesheet_link_tag "application", :media => "all" %>
   <!--[if IE 7]>
     <%= stylesheet_link_tag "font-awesome-ie7.min" %>
@@ -43,23 +44,32 @@
 <body class="<%= yield(:body_class) %>">
 <header>
   <div class="container">
+
     <div class="navbar">
       <div class="navbar-inner">
       	<div class="container">
-				<a class="pull-left" href="/" title="Yelp for restrooms"><img src="/assets/logo4.png" ></a>  
-       
+				<a class="pull-left" href="/" title="Yelp for restrooms" data-toggle="collapse" data-target=".nav-collapse"><img src="/assets/logo4.png" ></a>  
+       <% if user_signed_in? %>
+       <div class="nav-collapse collapse">
           <ul style="margin-top:30px;"class="nav pull-right">
-          	<% if user_signed_in? %>
-          		   <li><%= link_to "Home", root_path %></li> 
+          	
+          <li><%= link_to "Home", root_path %></li> 
 					<li><%= link_to current_user.profile_name, edit_user_registration_path %></li>
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-				
+				</ul>
+      </div>
 				<%else%> 
-					<li><%= link_to "Home", root_path %></li> 
+
+					<div class="nav-collapse collapse">
+            <ul style="margin-top:30px;"class="nav pull-right">
+          <li><%= link_to "Home", root_path %></li> 
 					<li><%= link_to "Register", new_user_registration_path %></li>
 					<li><%= link_to "Log in", new_user_session_path %></li>
+          </ul>
+        </div>
 				<%end%>
-			</ul>
+
+			
       </div>
     </div>
     

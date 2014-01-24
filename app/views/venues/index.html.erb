@@ -1,8 +1,11 @@
-<div class="new-page-header">
+
+    <div class="new-page-header">
     <h2>Restrooms</h2>
 </div>
 <% @venues.each do |restroom| %>
-<div class="media">
+<div class="row-fluid">
+<div class="span12">
+    <div class="media">
 
     <div class="index">
         <h4 class="media-heading"><%=link_to restroom.name, venue_show_path(:venue_id => restroom.id) %></h4>
@@ -17,6 +20,8 @@
 
     <p><div style='clear:both;'><%= truncate restroom.description, length: 290 %></div></p>
 
+</div>
+</div>
 </div>
 </div>
 <%end%>

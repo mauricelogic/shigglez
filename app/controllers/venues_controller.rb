@@ -18,7 +18,11 @@ class VenuesController < ApplicationController
         Venue.where({
           name: venue.name,
           address: venue.location.address,
-          venue_id: venue.id
+          venue_id: venue.id,
+          city: venue.location.city,
+          state: venue.location.state,
+          lat: venue.location.lat,
+          long: venue.location.lng,
         }).first_or_create
       end
 

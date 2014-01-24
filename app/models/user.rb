@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
   attr_accessible :avatar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "75x75" }, :default_url => "/images/:style/missing.png"
 
+   validates :profile_name, presence: true, 
+                           uniqueness: true,
+                           format:  {
+                             with: /^[a-zA-Z0-9_-]$/,
+                             message:"Must be formatted correctly."
+                           }
+
   
   has_many :albums
   has_many :pictures

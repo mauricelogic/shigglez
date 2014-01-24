@@ -170,6 +170,11 @@ ActiveRecord::Schema.define(:version => 20130701053853522) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "venue_id"
+    t.float    "lat"
+    t.float    "long"
+    t.string   "city"
+    t.string   "state"
+    t.string   "phone"
   end
 
 end

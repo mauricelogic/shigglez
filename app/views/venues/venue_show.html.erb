@@ -1,6 +1,8 @@
-<div class="index">
-  <div class="row">
-  <div class="span12">
+<div class="col-md-6 col-md-offset-3">
+  <div class="index">
+    <div class="span11">
+      <div class="row">
+
 <div>
 <div style ="float:left;">
           <p id="notice"><%= notice %></p>
@@ -16,6 +18,7 @@
               <div style= "float:left; clear:both;">
                 <address>
                 <%= @venue.address %></br>
+                <%= @venue.city %> <%= @venue.state %></br>
                 <%= @venue.venue_id %> 
                 </address>
                   Category:</br>      
@@ -29,6 +32,9 @@
 
 </div>
 
+    <div style= "float:right;">
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x250&sensor=false&zoom=17&markers=#{@venue.lat}%2C#{@venue.long}" %>
+    </div>
 
         </div>
 
@@ -39,8 +45,9 @@
 <%= link_to 'Back', venues_path %>
 </div>
   <div class="index" style="float:left;clear:both;">
-  <div class="row">
+  
   <div class="span11">
+    <div class="row">
 <h3>Latest Reviews</h3>
 
 <%= render :partial => @venue.reviews %>
@@ -95,4 +102,5 @@
 <% end %>
 
 <% end %>
+</div>
 </div>

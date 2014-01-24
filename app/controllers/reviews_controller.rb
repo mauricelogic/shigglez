@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
+    @venue = Venue.find(params[:venue_id])
 
 
    
@@ -43,13 +44,14 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
  def create
+  
   @venue = Venue.find(params[:venue_id])
   @review = @venue.reviews.create(params[:review])
   #redirect_to venue_show_path(params[@venue.venue_id])
   #@review.venue_id = params[:venue_id]
     #@review = @restroom.reviews.build(params[:review])
   #@review.save
-  @review.user_id = current_user.id
+  @review.user = current_user
       
   respond_to do |format|
       if @review.save
