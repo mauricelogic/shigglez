@@ -1,7 +1,16 @@
 
-    <div class="new-page-header">
-    <h2>Restrooms</h2>
+<div class="container">
+<div class="welcome">
+<div class="container">
+<h1 style="font-size:60px;">No more dirty restrooms!</h1>
+<p style="font-size:24px;">Restrooms matter to the public. How a business maintains its facilities is a reflection of a business’ commitment to customers. Join today and keep businesses accountable for their restrooms by submitting your ratings and reviews.</p>
+<p>
+<a class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 2.3.2']);" href="assets/bootstrap.zip">Join Today, It's Free</a>
+</p>
+<ul class="masthead-links">
 </div>
+</div>
+
 <% @venues.each do |restroom| %>
 <div class="row-fluid">
 <div class="span12">
@@ -12,6 +21,7 @@
         <address> <%=restroom.location.address%> </br>
                 <%=restroom.location.city%>, <%=restroom.location.state%> <%=restroom.location.postalCode%></br>
                 <%=restroom.contact.formattedPhone%>
+
         </address>
         <div class="review-block">
             <div class="review-icons"><%= rating_for restroom %></div>
@@ -25,3 +35,5 @@
 </div>
 </div>
 <%end%>
+
+</div>

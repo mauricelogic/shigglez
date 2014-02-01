@@ -1,3 +1,44 @@
+
+<div class="container" style="z-index:50;position:relative;">
+	<div class="welcome">	
+		<div class="row">
+			<div class="span12">
+				<h4 style="font-size:34px;">Log in to your account</h4>
+					<div class="col-md-4 social">
+
+						<%=link_to image_tag ('Twitter round.png'), :style => "padding:10px;"%> 
+						<%=link_to image_tag ('Facebook Round.png'),:style => "padding:10px;"%> 
+						<%=link_to image_tag ('Google plus round.png'), :style => "padding:10px;"%> 
+					</div>
+			</div>
+			<div class="division">
+				<div class="line l"></div>
+				<span style="font-size:20px;">or</span></br>
+				<div class="line r"></div>
+			</div>
+
+			<div class="col-md-12 footer">
+
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "form-inline"}) do |f| %>
+				 <%= devise_error_messages! %>
+				<%= f.text_field :email, :placeholder => "Email"%>
+				<%= f.password_field :password, :placeholder => "Password" %>
+
+				<%= f.submit "Sign in", :class => 'btn btn-primary btn-primary' %>
+
+			<% end %>
+
+			</div>
+
+			<div class="col-md-12 dosnt">
+				<span>Don't have an account?</span>
+				<span><%= render "devise/shared/links" %></span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <div class="row">
 <div class="signin span6">
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
