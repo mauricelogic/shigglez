@@ -46,16 +46,17 @@ class ReviewsController < ApplicationController
  def create
   
   @venue = Venue.find(params[:venue_id])
+  #@venue = Venue.find_by_venue_id(params[:venue_id])
   @review = @venue.reviews.create(params[:review])
   #redirect_to venue_show_path(params[@venue.venue_id])
-  #@review.venue_id = params[:venue_id]
+  @review.venue_id = params[:venue_id]
     #@review = @restroom.reviews.build(params[:review])
   #@review.save
   @review.user = current_user
       
   respond_to do |format|
       if @review.save
-        format.html { redirect_to(@venue, :notice => 'Review was successfully created.') }
+        format.html { redirect_to venue_show_path(params[@venue.id], :venue_id => @venue.venue_id ), :notice => 'Your review was successfully posted.'}
         format.xml  { render :xml => @venue, :status => :created, :location => @venue }
       else
         format.html { redirect_to(@venue, :notice => 

@@ -5,14 +5,15 @@
 <div class="new-comment">
 <div class="row">
   <div class="span8">
-  <strong>Hello </strong><%= current_user.profile_name %>
+  <strong>Hello you</strong><%= current_user.profile_name %>
   </div>
+  <%=image_tag current_user.avatar%>
 
 
 
 <div class="span6">
- <h4>What is your overall rating for this restroom? </h4>
- <%#= rating_for @restroom %>
+ <h4>What is your overall rating for this restroom? as</h4>
+ <%#= rating_for @restroom %><%=image_tag current_user.avatar%>
 </div>
 
 

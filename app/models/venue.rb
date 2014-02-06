@@ -1,9 +1,10 @@
 class Venue < ActiveRecord::Base
-  attr_accessible :address, :name
+  attr_accessible :address, :name, :venue_id
 
   has_many :reviews
 
   letsrate_rateable
+  
 
   def self.fetch_name(name)
   	if result = find_by_name(name) 

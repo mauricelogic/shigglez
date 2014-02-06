@@ -18,6 +18,64 @@ i.icon-feature{font-size:6.65em; color:#0C7BB3;}
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+.bubble 
+{
+position: relative;
+width: auto;
+height: auto;
+padding: 10px;
+background: #e7e7e7;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+border: #7F7F7F solid 0px;
+}
+
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 14px 22px 14px 0;
+border-color: transparent #e7e7e7;
+display: block;
+width: 0;
+z-index: 1;
+left: -22px;
+top: 20px;
+}
+
+.bubble:before 
+{
+content: '';
+position: absolute;
+/*border-style: solid;*/
+border-width: 14px 22px 14px 0;
+border-color: transparent #7F7F7F;
+display: block;
+width: 0;
+z-index: 0;
+left: -23px;
+top: 20px;
+}
+
+#copyright{
+    background:#365E90;
+}
+.form-edit {
+    padding: 15px 0 10px;
+    border-bottom:solid 1px #edeff0;
+    color: #8D9AA5;
+    }
+
+    .media-body{
+       color: #56646F;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    }
+
+
 @media (min-width: 768px) {
 .form-inline .form-group {
     display: inline-block;
@@ -48,7 +106,7 @@ i.icon-feature{font-size:6.65em; color:#0C7BB3;}
     overflow: hidden;
     position: absolute;
     width: 100%;
-    z-index: 0;
+    z-index: -1;
 }
 
 .welcome{
@@ -496,7 +554,7 @@ a.gplus {
 }
 
 .comment-cont {
-    margin-left: 60px;
+    margin-left: 100px;
 }
 
 .comment-body {
@@ -564,7 +622,7 @@ margin: 0px auto;
 
 #main-search #search {
 /*width: 330px;*/ /*--- we will change this width on hover effect ---*/
-height: 20px;
+height: auto;
 padding: 10px 5px;
 float: left;
 font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
@@ -582,7 +640,7 @@ transition:all 1s ease;
 
 #main-search #location {
 /*width: 200px;*/ /*--- we will change this width on hover effect ---*/
-height: 20px;
+height: auto;
 padding: 10px 5px;
 /*float: right;--*/
 font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';

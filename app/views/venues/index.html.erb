@@ -1,15 +1,18 @@
 
 <div class="container">
 <div class="welcome">
+    <% unless signed_in?%>
 <div class="container">
 <h1 style="font-size:60px;">No more dirty restrooms!</h1>
 <p style="font-size:24px;">Restrooms matter to the public. How a business maintains its facilities is a reflection of a business’ commitment to customers. Join today and keep businesses accountable for their restrooms by submitting your ratings and reviews.</p>
 <p>
 <a class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 2.3.2']);" href="assets/bootstrap.zip">Join Today, It's Free</a>
 </p>
+<%end%>
 <ul class="masthead-links">
 </div>
 </div>
+
 
 <% @venues.each do |restroom| %>
 <div class="row-fluid">

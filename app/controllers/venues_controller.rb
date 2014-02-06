@@ -48,7 +48,7 @@ end
   
   def venue_details
      client = Foursquare2::Client.new(:client_id => '45M1USHSGHPODOQWPSYJGAW50GBCMIHCKVQF410CKBCSO024', :client_secret => '4GO20RGY0BTI3VAQSS04P35AJ4A0DIZWF2JWLRPBFP0SDNQK',:api_version => '20140201')
-     @pics = client.venue_photos(params[:venue_id], options = {:group => 'venue'})
+    # @pics = client.venue_photos(params[:venue_id], options = {:group => 'venue'})
      @venue = client.venue(params[:venue_id])
      
 
@@ -63,7 +63,7 @@ end
     #@restroom = Restroom.find(params[:id])
     @venue = Venue.find_by_venue_id(params[:venue_id])
     @review = Review.new
-    @pics = client.venue_photos(params[:venue_id], options = {:group => 'venue'})
+    #@pics = client.venue_photos(params[:venue_id], options = {:group => 'venue'})
     @review.venue_id = @venue.id
 
     respond_to do |format|
