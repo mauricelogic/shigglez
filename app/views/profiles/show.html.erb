@@ -4,10 +4,11 @@
 </div>
 <% if @reviews %>
 	<% @reviews.each do |review|%>
+	<%=review.inspect%>
 		<div class="index">
 		<h4><%= review.title%></h4> <br />	
-		<%= review.content%>
-		<hr />
+		<%= review.content%>		<hr />
+		<%= review.venue_id%>
 		<%= link_to time_ago_in_words(review.created_at), review_path(review) %> ago
 		</div>
 	<%end%>

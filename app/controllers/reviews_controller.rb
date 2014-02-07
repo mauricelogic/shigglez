@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
-    @venue = Venue.find(params[:venue_id])
+    @venue = Venue.find(params[:id])
 
 
    
@@ -53,6 +53,7 @@ class ReviewsController < ApplicationController
     #@review = @restroom.reviews.build(params[:review])
   #@review.save
   @review.user = current_user
+  @review.venue = Venue.find(params[:venue_id])
       
   respond_to do |format|
       if @review.save
