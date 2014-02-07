@@ -12,7 +12,7 @@ gem 'cancan'
 gem 'simple_form'
 #gem 'rails_strap'
 gem 'rails_strap', path: 'vendor/rails_strap-1.0.3'
-#gem 'therubyracer'
+gem 'therubyracer'
 gem "paperclip", "~> 3.0"
 gem 'letsrate'
 gem 'geocoder'
