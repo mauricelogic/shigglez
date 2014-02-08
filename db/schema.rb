@@ -112,14 +112,14 @@ ActiveRecord::Schema.define(:version => 20130701053853522) do
     t.string   "title"
     t.text     "content"
     t.integer  "restroom_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "venue_id"
+    t.integer  "venue_id",           :limit => 255
   end
 
   add_index "reviews", ["restroom_id"], :name => "index_reviews_on_restroom_id"
