@@ -29,6 +29,8 @@ resources :reviews
 
   get '/:id', to: 'profiles#show'
 
+  
+
 
 
 

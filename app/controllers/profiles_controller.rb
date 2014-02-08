@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
   	@user = User.find_by_profile_name(params[:id])
+  	
 
   	if @user
   		@reviews = @user.reviews.order('id DESC').all
