@@ -1,0 +1,478 @@
+/* ==================================================
+* SoClean
+* Copyright 2013, Ujamshi Khandla
+* http://uckhandla.com
+================================================== */
+
+
+/* Basic Element Styles
+================================================== */
+body {
+    background: #fff url(../img/white01.png);
+    font: 14px/21px "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #666;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+}
+a {
+    color: #f4407f;
+    outline: 0 none;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out 0s;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+       -moz-transition: all 0.25s ease-in-out 0s;
+        -ms-transition: all 0.25s ease-in-out 0s;
+         -o-transition: all 0.25s ease-in-out 0s;
+}
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 10px 0;
+    padding: 0;
+    font-weight: normal;
+}
+h1 {
+    font-size: 46px;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+h3 {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 20px;
+}
+h4 {
+    font-size: 21px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+h5 {
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+h6 {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 20px;
+}
+
+
+/* Clearing
+================================================== */
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+.add-top {
+    padding-top: 20px;
+}
+
+
+/* Browser Specific
+================================================== */
+::-moz-selection {
+    color: #fff;
+    background: #40c9b2;
+    text-shadow: none;
+}
+::selection {
+    color: #fff;
+    background: #40c9b2;
+    text-shadow: none;
+}
+::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+/* Objects Styles
+================================================== */
+
+/* header section
+-------------------------- */
+#header {
+}
+
+/* branding */
+#branding {
+    border-bottom: 1px solid #e4e4e4;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+.logo {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.logo a {
+    background: url(../img/logo.png) top center no-repeat;
+    text-indent: -9999px;
+    display: block;
+    width: 163px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tagline{
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+}
+
+
+/* error */
+#error-wrapper {
+
+}
+.error {
+    text-align: center;
+    font-size: 140px;
+    line-height: 150px;
+    font-weight: 800;
+    color: #f4407f;
+    margin-bottom: 0;
+}
+.error-message {
+}
+.error-message p {
+    text-align: center;
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: bold;
+    color: #333;
+}
+.error-human {
+    margin-top: 40px;
+}
+.error-human p {
+    text-align: center;
+}
+
+/* calltoaction section
+-------------------------- */
+#calltoaction {
+    background: url(../img/color01.png);
+    color: #fff;
+    padding: 40px 0;
+    margin: 40px 0;
+}
+#calltoaction h3 {
+    text-align: center;
+    color: #fff;
+}
+#calltoaction p {
+    margin-bottom: 20px;
+    color: #fff;
+}
+/* topics */
+#topics-wrapper {
+    text-align: center;
+}
+#topics {
+    text-align: center;
+}
+#topics li {
+    display: inline-block;
+}
+#topics li a {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #fff;
+    color: #666;
+    border-radius: 3px;
+}
+#topics li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* search form */
+#search-wrapper {
+    text-align: center;
+}
+#searchform {
+    width: 290px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 3px;
+    padding: 5px;
+}
+#search {
+    border: 0;
+    outline: 0;
+    padding: 3px;
+    width: 250px;
+}
+#submit-button {
+    margin-right: 3px;
+    border: 0;
+    outline: 0;
+    color: #f4407f;
+    background: #fff;
+    border-left: 1px solid #e4e4e4;
+    width: 24px;
+    height: 24px
+}
+
+
+/* info section
+-------------------------- */
+#info {
+}
+#info h2 {
+    font-size: 35px;
+    line-height: 40px;
+    text-align: center;
+}
+#info p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* about */
+#about {
+}
+
+/* contact */
+#contact {
+}
+
+/* socialmedia */
+#socialmedia {
+    float: right;
+    margin-right: 20px;
+}
+#socialmedia ul {
+}
+#socialmedia ul li {
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#socialmedia ul li a {
+    padding: 5px;
+    background: #666;
+    color: #fff;
+    margin: 0;
+    border-radius: 50%;
+}
+#socialmedia ul li a:hover {
+    background: #333;
+}
+#socialmedia ul li.wrap {
+    clear: both;
+}
+
+
+/* contactinfo */
+#contactinfo {
+    margin-left: 20px;
+}
+#contactinfo ul {
+}
+#contactinfo ul li {
+    display: block;
+    font-size: 12px;
+}
+#contactinfo ul li span {
+    font-size: 21px;
+    color: #666;
+    margin-right: 10px;
+    min-width: 21px;
+    min-height: 21px;
+}
+
+/* button v1.1 */
+.button {
+    display: inline-block;
+    margin: 0 auto;
+    width: 150px;
+    text-align: center;
+    background-color: #f4407f;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    transition: all 0.25s ease-in-out 0s;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+       -moz-transition: all 0.25s ease-in-out 0s;
+        -ms-transition: all 0.25s ease-in-out 0s;
+         -o-transition: all 0.25s ease-in-out 0s;
+}
+.button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* colophon section
+-------------------------- */
+#colophon {
+    padding: 40px 0;
+}
+
+.copyright {
+    border-top: 1px solid #e4e4e4;
+    padding-top: 20px;
+}
+.copyright p {
+    font-size: 12px;
+    text-align: center;
+}
+
+
+
+/* Layout Base 960
+================================================== */
+.container {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+    padding: 0;
+}
+.container .half {
+    width: 470px;
+    float: left;
+    display: inline;
+}
+.row {
+    margin-bottom: 20px;
+}
+
+
+/* Layout Wide Screen (Bigger than 960px)
+================================================== */
+@media only screen and (min-width:1200px) {
+    .container {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .container .half {
+        width: 600px;
+        float: left;
+        display: inline;
+    }
+}
+
+
+/* Layout Tablet (Smaller than 959px)
+================================================== */
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+    .container {
+        position: relative;
+        width: 700px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .container .half {
+        width: 350px;
+        float: left;
+        display: inline;
+    }
+}
+
+
+/* Layout Mobile (Portrait) width of 320px
+================================================== */
+@media only screen and (max-width: 719px) {
+    .container {
+        position: relative;
+        width: 300px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .container .half {
+        width: 300px;
+        margin: 0;
+    }
+    /* socialmedia */
+    #socialmedia {
+        float: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    #socialmedia ul {
+        text-align: center;
+    }
+    #socialmedia ul li {
+        float: none;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    #contactinfo {
+        margin-left: 0;
+    }
+
+}
+
+
+/* Layout Mobile (landscape) width of 420px
+================================================== */
+@media only screen and (min-width: 480px) and (max-width: 719px) {
+    .container {
+        position: relative;
+        width: 420px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .container .half {
+        width: 420px;
+        margin: 0;
+    }
+}
+
+
+/* Retina Ready Images
+================================================== */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+    body {
+        background-color: #fff;
+        background-image: url(../img/white01@2x.png);
+        background-position: top center;
+        background-size: 13px 13px;  /* Half the size of the @2x image */
+    }
+    .logo a {
+        background-image: url(../img/logo@2x.png);
+        background-position: top center;
+        background-size: 163px 70px;  /* Half the size of the @2x image */
+    }
+    #calltoaction {
+        background-image: url(../img/color01@2x.png);
+        background-position: top center;
+        background-size: 13px 13px;  /* Half the size of the @2x image */
+    }
+}
+
+
+/* End of Document
+================================================== */
