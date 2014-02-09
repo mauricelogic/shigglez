@@ -1,0 +1,75 @@
+/* ==================================================
+* SoClean - Color Scheme - Dreamy
+* Copyright 2013, Ujamshi Khandla
+* http://uckhandla.com
+================================================== */
+
+/* Basic Element Styles
+================================================== */
+body {
+    background: #fff url(../img/white05.png);
+}
+a {
+    color: #5fb189;
+}
+/* Browser Specific
+================================================== */
+::-moz-selection {
+    background: #6b5248;
+}
+::selection {
+    background: #6b5248;
+}
+
+/* Objects Styles
+================================================== */
+/* error */
+.error {
+    color: #5fb189;
+}
+
+/* calltoaction section
+-------------------------- */
+#calltoaction {
+    background: url(../img/color05.png);
+}
+/* search form */
+#submit-button {
+    color: #5fb189;
+}
+
+/* button v1.1 */
+.button {
+    background-color: #5fb189;
+    color: #fff;
+}
+.button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Retina Ready Images
+================================================== */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+    body {
+        background-color: #fff;
+        background-image: url(../img/white05@2x.png);
+        background-position: top center;
+        background-size: 13px 13px; /* Half the size of the @2x image */
+    }
+    #calltoaction {
+        background-image: url(../img/color05@2x.png);
+        background-position: top center;
+        background-size: 13px 13px; /* Half the size of the @2x image */
+    }
+}
+
+/* End of Document
+================================================== */
