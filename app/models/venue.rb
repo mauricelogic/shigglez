@@ -4,6 +4,8 @@ class Venue < ActiveRecord::Base
   has_many :reviews
 
   letsrate_rateable
+
+  
   
 
   def self.fetch_name(name)

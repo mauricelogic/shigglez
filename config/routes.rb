@@ -29,7 +29,7 @@ resources :reviews
 
   get '/:id', to: 'profiles#show'
 
-  
+  resources :users, :path => '/'
 
 
 

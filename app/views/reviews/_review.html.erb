@@ -8,8 +8,9 @@
    <div class="comment-cont">
     <div class="bubble">
     <div class="comment-author" style="font-size:16px;">
-      <%= link_to review.user.profile_name.capitalize, @user%>
+      <%= link_to review.user.profile_name.capitalize, review.user%>
       (<%= review.user.reviews.count%> reviews)</br>
+
   </div>
     <div class="media-body">
     <p><%= review.content %></p>

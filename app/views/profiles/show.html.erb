@@ -1,6 +1,11 @@
-<div class="page-header">
-	<h1><%= @user.profile_name %></h1>
-	<hr/>
+<div class="index">
+	<div class="page-header">
+	<h3><%= @user.profile_name.capitalize %></h3>
+<hr/>
+	<%=image_tag @user.avatar(:thumb), class: "img-circle" %>
+	(<%= @user.reviews.count%> reviews)</br>
+	
+</div>
 </div>
 <% if @reviews %>
 	<% @reviews.each do |review|%>
